@@ -40,7 +40,7 @@ namespace H5_FOV_and_Resoulution_Tool
 
             int unused = 0;
             //IntPtr addr = IntPtr.Add(startOffset, 0x9FCE85);
-            IntPtr addr = IntPtr.Add(startOffset, addr);
+            IntPtr addr = IntPtr.Add(startOffset, Convert.ToInt32(address));
             WriteProcessMemory(hProc, addr, hex, (UInt16)hex.LongLength, out unused);
 
             CloseHandle(hProc);
