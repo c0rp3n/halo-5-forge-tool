@@ -1,4 +1,4 @@
-# H5-FOV-and-Resoulution-Tool
+# H5-FOV-and-Resolution-Tool
 
 When will this be finished: **SoonTM**
 
