@@ -1,10 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
+
 namespace H5_FOV_and_Resoulution_Tool
 {
     class MemoryManager
@@ -32,16 +30,15 @@ namespace H5_FOV_and_Resoulution_Tool
         [DllImport("kernel32.dll")]
         public static extern Int32 CloseHandle(IntPtr hProcess);
 
-        public static void WriteToAddress(uint address, byte[] hex)
+        public static void WriteToAddress(Int32 address, byte[] hex)
         {
-            var p = Process.GetProcessesByName("halo5forge").FirstOrDefault();
-            IntPtr startOffset = p.MainModule.BaseAddress;
+            Process p = Process.GetProcessesByName("halo5forge").FirstOrDefault();
+            Int64 startOffset = p.MainModule.BaseAddress.ToInt64();
+            Int64 offset = startOffset + address;
             var hProc = OpenProcess(ProcessAccessFlags.All, false, (int)p.Id);
-
             int unused = 0;
-            //IntPtr addr = IntPtr.Add(startOffset, 0x9FCE85);
-            IntPtr addr = IntPtr.Add(startOffset, Convert.ToInt32(address));
-            WriteProcessMemory(hProc, addr, hex, (UInt16)hex.LongLength, out unused);
+            IntPtr addr = new IntPtr(offset);
+            WriteProcessMemory(hProc, addr, hex, (UInt32)hex.LongLength, out unused);
 
             CloseHandle(hProc);
         }

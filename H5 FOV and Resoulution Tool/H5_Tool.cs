@@ -19,9 +19,9 @@ namespace H5_FOV_and_Resoulution_Tool
         {
             InitializeComponent();
 
-            uint addr = 0x009FCE85;
-            
-            byte[] fov = BitConverter.GetBytes( 50.0 );
+            Int32 addr = 0x58ECF90;
+
+            byte[] fov = BitConverter.GetBytes(96.00000000);
 
             MemoryManager.WriteToAddress(addr, fov);
         }
