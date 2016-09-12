@@ -99,5 +99,29 @@ namespace H5_FOV_and_Resoulution_Tool
         {
             ResInput.Value = ResTrackBar.Value;
         }
+
+        private void change_fps(int fps, Int32 addr)
+        {
+            byte[] fpsval = BitConverter.GetBytes(fps);
+
+            MemoryManager.WriteToAddress(addr, fpsval);
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if(FpsCheck.Enabled == true)
+            {
+                change_fps(8333, 0x34B8C50);
+                change_fps(8333, 0x34B8C60);
+                change_fps(8333, 0x34B8C70);
+            }
+
+            else
+            {
+                change_fps(16666, 0x34B8C50);
+                change_fps(16666, 0x34B8C60);
+                change_fps(16666, 0x34B8C70);
+            }
+        }
     }
 }

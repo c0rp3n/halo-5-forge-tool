@@ -32,21 +32,25 @@
             this.FovInput = new System.Windows.Forms.NumericUpDown();
             this.FovChange = new System.Windows.Forms.Button();
             this.FovToolBox = new System.Windows.Forms.GroupBox();
-            this.ResToolBox = new System.Windows.Forms.GroupBox();
-            this.TutorialMapChangerBox = new System.Windows.Forms.GroupBox();
-            this.ResInput = new System.Windows.Forms.NumericUpDown();
-            this.ResChange = new System.Windows.Forms.Button();
-            this.TutorialMapChangerMaps = new System.Windows.Forms.ComboBox();
-            this.TutorialMapChangerChange = new System.Windows.Forms.Button();
             this.FovTrackBar = new System.Windows.Forms.TrackBar();
+            this.ResToolBox = new System.Windows.Forms.GroupBox();
             this.ResTrackBar = new System.Windows.Forms.TrackBar();
+            this.ResChange = new System.Windows.Forms.Button();
+            this.ResInput = new System.Windows.Forms.NumericUpDown();
+            this.TutorialMapChangerBox = new System.Windows.Forms.GroupBox();
+            this.TutorialMapChangerChange = new System.Windows.Forms.Button();
+            this.TutorialMapChangerMaps = new System.Windows.Forms.ComboBox();
+            this.FpsToolBox = new System.Windows.Forms.GroupBox();
+            this.FpsCheck = new System.Windows.Forms.CheckBox();
+            this.FpsToolLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.FovInput)).BeginInit();
             this.FovToolBox.SuspendLayout();
-            this.ResToolBox.SuspendLayout();
-            this.TutorialMapChangerBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ResInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FovTrackBar)).BeginInit();
+            this.ResToolBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ResTrackBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ResInput)).BeginInit();
+            this.TutorialMapChangerBox.SuspendLayout();
+            this.FpsToolBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // FovInput
@@ -84,6 +88,14 @@
             this.FovToolBox.TabStop = false;
             this.FovToolBox.Text = "FOV Tool";
             // 
+            // FovTrackBar
+            // 
+            this.FovTrackBar.Location = new System.Drawing.Point(135, 19);
+            this.FovTrackBar.Name = "FovTrackBar";
+            this.FovTrackBar.Size = new System.Drawing.Size(226, 45);
+            this.FovTrackBar.TabIndex = 2;
+            this.FovTrackBar.Scroll += new System.EventHandler(this.FovTrackBarScroll);
+            // 
             // ResToolBox
             // 
             this.ResToolBox.Controls.Add(this.ResTrackBar);
@@ -96,16 +108,23 @@
             this.ResToolBox.TabStop = false;
             this.ResToolBox.Text = "Res Tool";
             // 
-            // TutorialMapChangerBox
+            // ResTrackBar
             // 
-            this.TutorialMapChangerBox.Controls.Add(this.TutorialMapChangerChange);
-            this.TutorialMapChangerBox.Controls.Add(this.TutorialMapChangerMaps);
-            this.TutorialMapChangerBox.Location = new System.Drawing.Point(12, 179);
-            this.TutorialMapChangerBox.Name = "TutorialMapChangerBox";
-            this.TutorialMapChangerBox.Size = new System.Drawing.Size(367, 81);
-            this.TutorialMapChangerBox.TabIndex = 4;
-            this.TutorialMapChangerBox.TabStop = false;
-            this.TutorialMapChangerBox.Text = "Tutorial map changer";
+            this.ResTrackBar.Location = new System.Drawing.Point(135, 20);
+            this.ResTrackBar.Name = "ResTrackBar";
+            this.ResTrackBar.Size = new System.Drawing.Size(226, 45);
+            this.ResTrackBar.TabIndex = 2;
+            this.ResTrackBar.MouseCaptureChanged += new System.EventHandler(this.ResTrackBarScroll);
+            // 
+            // ResChange
+            // 
+            this.ResChange.Location = new System.Drawing.Point(7, 47);
+            this.ResChange.Name = "ResChange";
+            this.ResChange.Size = new System.Drawing.Size(120, 23);
+            this.ResChange.TabIndex = 1;
+            this.ResChange.Text = "Change Res";
+            this.ResChange.UseVisualStyleBackColor = true;
+            this.ResChange.Click += new System.EventHandler(this.ResChange_Click);
             // 
             // ResInput
             // 
@@ -134,23 +153,16 @@
             0,
             0});
             // 
-            // ResChange
+            // TutorialMapChangerBox
             // 
-            this.ResChange.Location = new System.Drawing.Point(7, 47);
-            this.ResChange.Name = "ResChange";
-            this.ResChange.Size = new System.Drawing.Size(120, 23);
-            this.ResChange.TabIndex = 1;
-            this.ResChange.Text = "Change Res";
-            this.ResChange.UseVisualStyleBackColor = true;
-            this.ResChange.Click += new System.EventHandler(this.ResChange_Click);
-            // 
-            // TutorialMapChangerMaps
-            // 
-            this.TutorialMapChangerMaps.FormattingEnabled = true;
-            this.TutorialMapChangerMaps.Location = new System.Drawing.Point(7, 20);
-            this.TutorialMapChangerMaps.Name = "TutorialMapChangerMaps";
-            this.TutorialMapChangerMaps.Size = new System.Drawing.Size(354, 21);
-            this.TutorialMapChangerMaps.TabIndex = 0;
+            this.TutorialMapChangerBox.Controls.Add(this.TutorialMapChangerChange);
+            this.TutorialMapChangerBox.Controls.Add(this.TutorialMapChangerMaps);
+            this.TutorialMapChangerBox.Location = new System.Drawing.Point(12, 179);
+            this.TutorialMapChangerBox.Name = "TutorialMapChangerBox";
+            this.TutorialMapChangerBox.Size = new System.Drawing.Size(367, 81);
+            this.TutorialMapChangerBox.TabIndex = 4;
+            this.TutorialMapChangerBox.TabStop = false;
+            this.TutorialMapChangerBox.Text = "Tutorial map changer";
             // 
             // TutorialMapChangerChange
             // 
@@ -162,27 +174,50 @@
             this.TutorialMapChangerChange.UseVisualStyleBackColor = true;
             this.TutorialMapChangerChange.Click += new System.EventHandler(this.TutorialMapChangerChange_Click);
             // 
-            // FovTrackBar
+            // TutorialMapChangerMaps
             // 
-            this.FovTrackBar.Location = new System.Drawing.Point(135, 19);
-            this.FovTrackBar.Name = "FovTrackBar";
-            this.FovTrackBar.Size = new System.Drawing.Size(226, 45);
-            this.FovTrackBar.TabIndex = 2;
-            this.FovTrackBar.Scroll += new System.EventHandler(this.FovTrackBarScroll);
+            this.TutorialMapChangerMaps.FormattingEnabled = true;
+            this.TutorialMapChangerMaps.Location = new System.Drawing.Point(7, 20);
+            this.TutorialMapChangerMaps.Name = "TutorialMapChangerMaps";
+            this.TutorialMapChangerMaps.Size = new System.Drawing.Size(354, 21);
+            this.TutorialMapChangerMaps.TabIndex = 0;
             // 
-            // ResTrackBar
+            // FpsToolBox
             // 
-            this.ResTrackBar.Location = new System.Drawing.Point(135, 20);
-            this.ResTrackBar.Name = "ResTrackBar";
-            this.ResTrackBar.Size = new System.Drawing.Size(226, 45);
-            this.ResTrackBar.TabIndex = 2;
-            this.ResTrackBar.MouseCaptureChanged += new System.EventHandler(this.ResTrackBarScroll);
+            this.FpsToolBox.Controls.Add(this.FpsCheck);
+            this.FpsToolBox.Controls.Add(this.FpsToolLabel);
+            this.FpsToolBox.Location = new System.Drawing.Point(386, 13);
+            this.FpsToolBox.Name = "FpsToolBox";
+            this.FpsToolBox.Size = new System.Drawing.Size(200, 38);
+            this.FpsToolBox.TabIndex = 5;
+            this.FpsToolBox.TabStop = false;
+            this.FpsToolBox.Text = "FPS Tool";
+            // 
+            // FpsCheck
+            // 
+            this.FpsCheck.AutoSize = true;
+            this.FpsCheck.Location = new System.Drawing.Point(122, 20);
+            this.FpsCheck.Name = "FpsCheck";
+            this.FpsCheck.Size = new System.Drawing.Size(15, 14);
+            this.FpsCheck.TabIndex = 1;
+            this.FpsCheck.UseVisualStyleBackColor = true;
+            this.FpsCheck.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            // 
+            // FpsToolLabel
+            // 
+            this.FpsToolLabel.AutoSize = true;
+            this.FpsToolLabel.Location = new System.Drawing.Point(7, 20);
+            this.FpsToolLabel.Name = "FpsToolLabel";
+            this.FpsToolLabel.Size = new System.Drawing.Size(108, 13);
+            this.FpsToolLabel.TabIndex = 0;
+            this.FpsToolLabel.Text = "Enable 120 Fps Limit:";
             // 
             // H5_Tool
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(550, 270);
+            this.ClientSize = new System.Drawing.Size(673, 270);
+            this.Controls.Add(this.FpsToolBox);
             this.Controls.Add(this.TutorialMapChangerBox);
             this.Controls.Add(this.ResToolBox);
             this.Controls.Add(this.FovToolBox);
@@ -192,12 +227,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.FovInput)).EndInit();
             this.FovToolBox.ResumeLayout(false);
             this.FovToolBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FovTrackBar)).EndInit();
             this.ResToolBox.ResumeLayout(false);
             this.ResToolBox.PerformLayout();
-            this.TutorialMapChangerBox.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.ResInput)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.FovTrackBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ResTrackBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ResInput)).EndInit();
+            this.TutorialMapChangerBox.ResumeLayout(false);
+            this.FpsToolBox.ResumeLayout(false);
+            this.FpsToolBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -215,6 +252,9 @@
         private System.Windows.Forms.ComboBox TutorialMapChangerMaps;
         private System.Windows.Forms.TrackBar FovTrackBar;
         private System.Windows.Forms.TrackBar ResTrackBar;
+        private System.Windows.Forms.GroupBox FpsToolBox;
+        private System.Windows.Forms.CheckBox FpsCheck;
+        private System.Windows.Forms.Label FpsToolLabel;
     }
 }
 
