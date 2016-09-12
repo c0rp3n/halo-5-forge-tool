@@ -28,46 +28,52 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.FovInput = new System.Windows.Forms.NumericUpDown();
+            this.FovChange = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.FovInput)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // FovInput
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 13);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "label1";
+            this.FovInput.DecimalPlaces = 8;
+            this.FovInput.Location = new System.Drawing.Point(13, 13);
+            this.FovInput.Maximum = new decimal(new int[] {
+            150,
+            0,
+            0,
+            0});
+            this.FovInput.Name = "FovInput";
+            this.FovInput.Size = new System.Drawing.Size(120, 20);
+            this.FovInput.TabIndex = 0;
             // 
-            // label2
+            // FovChange
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 30);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "label2";
+            this.FovChange.Location = new System.Drawing.Point(13, 40);
+            this.FovChange.Name = "FovChange";
+            this.FovChange.Size = new System.Drawing.Size(75, 23);
+            this.FovChange.TabIndex = 1;
+            this.FovChange.Text = "button1";
+            this.FovChange.UseVisualStyleBackColor = true;
+            this.FovChange.Click += new System.EventHandler(this.FovChange_Click);
             // 
             // H5_Tool
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(284, 261);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.ClientSize = new System.Drawing.Size(284, 79);
+            this.Controls.Add(this.FovChange);
+            this.Controls.Add(this.FovInput);
             this.Name = "H5_Tool";
             this.Text = "Form1";
+            ((System.ComponentModel.ISupportInitialize)(this.FovInput)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.NumericUpDown FovInput;
+        private System.Windows.Forms.Button FovChange;
     }
 }
 

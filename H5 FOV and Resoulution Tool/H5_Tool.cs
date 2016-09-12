@@ -5,6 +5,7 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -19,9 +20,16 @@ namespace H5_FOV_and_Resoulution_Tool
         {
             InitializeComponent();
 
+            FovInput.Value = 96;
+        }
+
+        private void FovChange_Click(object sender, EventArgs e)
+        {
             Int32 addr = 0x58ECF90;
 
-            byte[] fov = BitConverter.GetBytes(96.00000000);
+            float test = (float)FovInput.Value;
+
+            byte[] fov = BitConverter.GetBytes(test);
 
             MemoryManager.WriteToAddress(addr, fov);
         }
