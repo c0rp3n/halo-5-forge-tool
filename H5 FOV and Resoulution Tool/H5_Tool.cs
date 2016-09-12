@@ -21,33 +21,39 @@ namespace H5_FOV_and_Resoulution_Tool
         {
             InitializeComponent();
 
-            FovInput.Value = 96;
+            FovTrackBar.Minimum = 65;
+            FovTrackBar.Maximum = 150;
+            ResTrackBar.Minimum = 840;
+            ResTrackBar.Maximum = 7680;
+            FovInput.Value = 78;
+            FovTrackBar.Value = 78;
             ResInput.Value = 1920;
+            ResTrackBar.Value = 1920;
 
             IDictionary maps = new Dictionary<string, string> {
-                {"Alpine", "levels\multi\fo01_terrain_alpine\fo01_terrain_alpine"},
-                {"Breakout Arena", "09150000"},
-                {"Coliseum", "0C150000"},
-                {"Eden", "0e150000"},
-                {"Empire", "FF140000"},
-                {"Fathom", "FF140000"},
-                {"Glacier", "FF140000"},
-                {"Mercy", "FF140000"},
-                {"Molten", "FF140000"},
-                {"Overgrowth", "FF140000"},
-                {"Plaza", "FF140000"},
-                {"Regret", "FF140000"},
-                {"Riptide", "FF140000"},
-                {"Stasis", "FF140000"},
-                {"The Rig", "FF140000"},
-                {"Tidal", "FF140000"},
-                {"Torque", "FF140000"},
-                {"Truth", "FF140000"},
-                {"Tyrant", "FF140000"}
+                {"Alpine", @"levels\multi\fo01_terrain_alpine\fo01_terrain_alpine"},
+                {"Breakout Arena", @"levels\multi\fo03_space\fo03_space"},
+                {"Coliseum", @"levels\multi\fo01_terrain_alpine\fo01_terrain_alpine"},
+                {"Eden", @"levels\multi\fo01_terrain_alpine\fo01_terrain_alpine"},
+                {"Empire", @"levels\multi\fo01_terrain_alpine\fo01_terrain_alpine"},
+                {"Fathom", @"levels\multi\fo01_terrain_alpine\fo01_terrain_alpine"},
+                {"Glacier", @"levels\multi\fo02_glacier\fo02_glacier"},
+                {"Mercy", @"levels\multi\fo01_terrain_alpine\fo01_terrain_alpine"},
+                {"Molten", @"levels\multi\fo01_terrain_alpine\fo01_terrain_alpine"},
+                {"Overgrowth", @"levels\multi\fo01_terrain_alpine\fo01_terrain_alpine"},
+                {"Plaza", @"levels\multi\fo01_terrain_alpine\fo01_terrain_alpine"},
+                {"Regret", @"levels\multi\fo01_terrain_alpine\fo01_terrain_alpine"},
+                {"Riptide", @"levels\multi\fo01_terrain_alpine\fo01_terrain_alpine"},
+                {"Stasis", @"levels\multi\fo01_terrain_alpine\fo01_terrain_alpine"},
+                {"The Rig", @"levels\multi\fo01_terrain_alpine\fo01_terrain_alpine"},
+                {"Tidal", @"levels\multi\fo04_ocean\fo04_ocean"},
+                {"Torque", @"levels\multi\fo01_terrain_alpine\fo01_terrain_alpine"},
+                {"Truth", @"levels\multi\ng43_midship\ng43_midship"},
+                {"Tyrant", @"levels\multi\fo01_terrain_alpine\fo01_terrain_alpine"}
             };
 
             TutorialMapChangerMaps.DataSource = new BindingSource(maps, null);
-            TutorialMapChangerMaps.DisplayMember = "Map";
+            TutorialMapChangerMaps.DisplayMember = "Key";
             TutorialMapChangerMaps.ValueMember = "Value";
         }
 
@@ -75,26 +81,22 @@ namespace H5_FOV_and_Resoulution_Tool
 
         private void TutorialMapChangerChange_Click(object sender, EventArgs e)
         {
-            //Int32 addr = 0x3A25DA0;
+            Int32 addr = 0x3A25DA0;
 
-            //string mapval = (float)FovInput.Value;
+            string mapval = TutorialMapChangerMaps.SelectedValue.ToString();
 
-            //byte[] map = BitConverter.GetBytes(mapval);
+            byte[] map = Encoding.ASCII.GetBytes(mapval);
 
-            //MemoryManager.WriteToAddress(addr, map);
+            MemoryManager.WriteToAddress(addr, map);
         }
 
         private void FovTrackBarScroll(object sender, EventArgs e)
         {
-            FovTrackBar.Minimum = 65;
-            FovTrackBar.Maximum = 150;
             FovInput.Value = FovTrackBar.Value;
         }
 
         private void ResTrackBarScroll(object sender, EventArgs e)
         {
-            ResTrackBar.Minimum = 840;
-            ResTrackBar.Maximum = 7680;
             ResInput.Value = ResTrackBar.Value;
         }
     }
