@@ -29,6 +29,9 @@ namespace H5_FOV_and_Resoulution_Tool
         static extern bool WriteProcessMemory(IntPtr hProcess, IntPtr lpBaseAddress, byte[] lpBuffer, uint nSize, out int lpNumberOfBytesWritten);
 
         [DllImport("kernel32.dll")]
+        public static extern bool ReadProcessMemory(IntPtr hProcess, IntPtr lpBaseAddress, byte[] lpBuffer, uint dwSize, ref int lpNumberOfBytesRead);
+
+        [DllImport("kernel32.dll")]
         public static extern Int32 CloseHandle(IntPtr hProcess);
 
         public static void WriteToAddress(Int32 address, byte[] hex)
@@ -42,6 +45,19 @@ namespace H5_FOV_and_Resoulution_Tool
             WriteProcessMemory(hProc, addr, hex, (UInt32)hex.LongLength, out unused);
 
             CloseHandle(hProc);
+        }
+
+        public static byte[] ReadToAddress(Int32 address)
+        {
+            Process p = Process.GetProcessesByName("halo5forge").FirstOrDefault();
+            Int64 startOffset = p.MainModule.BaseAddress.ToInt64();
+            Int64 offset = startOffset + address;
+            var hProc = OpenProcess(ProcessAccessFlags.All, false, (int)p.Id);
+            int unused = 0;
+            IntPtr addr = new IntPtr(offset);
+            byte[] hex = new byte[4];
+            ReadProcessMemory(hProc, addr, hex, (UInt32)hex.LongLength, ref unused);
+            return hex;
         }
     }
 }

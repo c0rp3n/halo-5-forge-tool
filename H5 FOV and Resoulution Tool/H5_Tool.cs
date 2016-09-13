@@ -25,10 +25,14 @@ namespace H5_FOV_and_Resoulution_Tool
             FovTrackBar.Maximum = 150;
             ResTrackBar.Minimum = 840;
             ResTrackBar.Maximum = 7680;
-            FovInput.Value = 78;
-            FovTrackBar.Value = 78;
+            FPSTrackBar.Minimum = 30;
+            FPSTrackBar.Maximum = 300;
+            FovInput.Value = Convert.ToDecimal(fetch_fov());
+            FovTrackBar.Value = Convert.ToInt32(FovInput.Value);    
             ResInput.Value = 1920;
             ResTrackBar.Value = 1920;
+            FPSInput.Value = fetch_fps();
+            FPSTrackBar.Value = Convert.ToInt32(FPSInput.Value);
 
             IDictionary maps = new Dictionary<string, string> {
                 {"Alpine", @"levels\multi\fo01_terrain_alpine\fo01_terrain_alpine"},
@@ -107,21 +111,31 @@ namespace H5_FOV_and_Resoulution_Tool
             MemoryManager.WriteToAddress(addr, fpsval);
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        public static int fetch_fps()
         {
-            if(FpsCheck.Enabled == true)
-            {
-                change_fps(8333, 0x34B8C50);
-                change_fps(8333, 0x34B8C60);
-                change_fps(8333, 0x34B8C70);
-            }
+            int fps_div = BitConverter.ToInt16(MemoryManager.ReadToAddress(0x34B8C50), 0);
+            int fps = 1000000 / fps_div;
+            return fps;
+        }
 
-            else
-            {
-                change_fps(16666, 0x34B8C50);
-                change_fps(16666, 0x34B8C60);
-                change_fps(16666, 0x34B8C70);
-            }
+        public static float fetch_fov()
+        {
+            float fov = BitConverter.ToInt16(MemoryManager.ReadToAddress(0x34B8C50), 0);
+            return fov;
+        }
+
+        private void FPSChange_Click(object sender, EventArgs e)
+        {
+            change_fps(1000000 / Convert.ToInt16(FPSInput.Value), 0x34B8C50);
+            change_fps(1000000 / Convert.ToInt16(FPSInput.Value), 0x34B8C60);
+            change_fps(1000000 / Convert.ToInt16(FPSInput.Value), 0x34B8C70);
+        }
+
+        private void H5Launcher_Click(object sender, EventArgs e)
+        {
+            ProcessStartInfo halo5info = new ProcessStartInfo();
+            halo5info.FileName = "halo5forge.exe";
+            Process.Start(halo5info);
         }
     }
 }

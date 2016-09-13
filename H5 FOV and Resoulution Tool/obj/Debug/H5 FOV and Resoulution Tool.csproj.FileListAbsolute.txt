@@ -7,3 +7,6 @@ c:\users\ojhit\documents\visual studio 2015\Projects\H5 FOV and Resoulution Tool
 c:\users\ojhit\documents\visual studio 2015\Projects\H5 FOV and Resoulution Tool\H5 FOV and Resoulution Tool\obj\Debug\H5 FOV and Resoulution Tool.exe
 c:\users\ojhit\documents\visual studio 2015\Projects\H5 FOV and Resoulution Tool\H5 FOV and Resoulution Tool\obj\Debug\H5 FOV and Resoulution Tool.pdb
 c:\users\ojhit\documents\visual studio 2015\Projects\H5 FOV and Resoulution Tool\H5 FOV and Resoulution Tool\obj\Debug\H5_FOV_and_Resoulution_Tool.H5_Tool.resources
+C:\Users\Terry\Documents\Visual Studio 2015\Projects\H5-FOV-and-Resolution-Tool\H5 FOV and Resoulution Tool\bin\Debug\H5 FOV and Resoulution Tool.exe.config
+C:\Users\Terry\Documents\Visual Studio 2015\Projects\H5-FOV-and-Resolution-Tool\H5 FOV and Resoulution Tool\obj\Debug\H5 FOV and Resoulution Tool.exe
+C:\Users\Terry\Documents\Visual Studio 2015\Projects\H5-FOV-and-Resolution-Tool\H5 FOV and Resoulution Tool\obj\Debug\H5 FOV and Resoulution Tool.pdb

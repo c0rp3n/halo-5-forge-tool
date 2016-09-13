@@ -41,8 +41,10 @@
             this.TutorialMapChangerChange = new System.Windows.Forms.Button();
             this.TutorialMapChangerMaps = new System.Windows.Forms.ComboBox();
             this.FpsToolBox = new System.Windows.Forms.GroupBox();
-            this.FpsCheck = new System.Windows.Forms.CheckBox();
-            this.FpsToolLabel = new System.Windows.Forms.Label();
+            this.FPSInput = new System.Windows.Forms.NumericUpDown();
+            this.FPSTrackBar = new System.Windows.Forms.TrackBar();
+            this.FPSChange = new System.Windows.Forms.Button();
+            this.H5Launcher = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.FovInput)).BeginInit();
             this.FovToolBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FovTrackBar)).BeginInit();
@@ -51,6 +53,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.ResInput)).BeginInit();
             this.TutorialMapChangerBox.SuspendLayout();
             this.FpsToolBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FPSInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FPSTrackBar)).BeginInit();
             this.SuspendLayout();
             // 
             // FovInput
@@ -184,39 +188,71 @@
             // 
             // FpsToolBox
             // 
-            this.FpsToolBox.Controls.Add(this.FpsCheck);
-            this.FpsToolBox.Controls.Add(this.FpsToolLabel);
+            this.FpsToolBox.Controls.Add(this.FPSChange);
+            this.FpsToolBox.Controls.Add(this.FPSTrackBar);
+            this.FpsToolBox.Controls.Add(this.FPSInput);
             this.FpsToolBox.Location = new System.Drawing.Point(386, 13);
             this.FpsToolBox.Name = "FpsToolBox";
-            this.FpsToolBox.Size = new System.Drawing.Size(200, 38);
+            this.FpsToolBox.Size = new System.Drawing.Size(374, 73);
             this.FpsToolBox.TabIndex = 5;
             this.FpsToolBox.TabStop = false;
             this.FpsToolBox.Text = "FPS Tool";
             // 
-            // FpsCheck
+            // FPSInput
             // 
-            this.FpsCheck.AutoSize = true;
-            this.FpsCheck.Location = new System.Drawing.Point(122, 20);
-            this.FpsCheck.Name = "FpsCheck";
-            this.FpsCheck.Size = new System.Drawing.Size(15, 14);
-            this.FpsCheck.TabIndex = 1;
-            this.FpsCheck.UseVisualStyleBackColor = true;
-            this.FpsCheck.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
+            this.FPSInput.Location = new System.Drawing.Point(6, 19);
+            this.FPSInput.Maximum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
+            this.FPSInput.Minimum = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
+            this.FPSInput.Name = "FPSInput";
+            this.FPSInput.Size = new System.Drawing.Size(120, 20);
+            this.FPSInput.TabIndex = 6;
+            this.FPSInput.Value = new decimal(new int[] {
+            60,
+            0,
+            0,
+            0});
             // 
-            // FpsToolLabel
+            // FPSTrackBar
             // 
-            this.FpsToolLabel.AutoSize = true;
-            this.FpsToolLabel.Location = new System.Drawing.Point(7, 20);
-            this.FpsToolLabel.Name = "FpsToolLabel";
-            this.FpsToolLabel.Size = new System.Drawing.Size(108, 13);
-            this.FpsToolLabel.TabIndex = 0;
-            this.FpsToolLabel.Text = "Enable 120 Fps Limit:";
+            this.FPSTrackBar.Location = new System.Drawing.Point(132, 19);
+            this.FPSTrackBar.Name = "FPSTrackBar";
+            this.FPSTrackBar.Size = new System.Drawing.Size(226, 45);
+            this.FPSTrackBar.TabIndex = 3;
+            // 
+            // FPSChange
+            // 
+            this.FPSChange.Location = new System.Drawing.Point(6, 45);
+            this.FPSChange.Name = "FPSChange";
+            this.FPSChange.Size = new System.Drawing.Size(120, 23);
+            this.FPSChange.TabIndex = 7;
+            this.FPSChange.Text = "Change FPS";
+            this.FPSChange.UseVisualStyleBackColor = true;
+            this.FPSChange.Click += new System.EventHandler(this.FPSChange_Click);
+            // 
+            // H5Launcher
+            // 
+            this.H5Launcher.Location = new System.Drawing.Point(386, 237);
+            this.H5Launcher.Name = "H5Launcher";
+            this.H5Launcher.Size = new System.Drawing.Size(374, 23);
+            this.H5Launcher.TabIndex = 6;
+            this.H5Launcher.Text = "Launch Halo 5: Forge";
+            this.H5Launcher.UseVisualStyleBackColor = true;
+            this.H5Launcher.Click += new System.EventHandler(this.H5Launcher_Click);
             // 
             // H5_Tool
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(673, 270);
+            this.ClientSize = new System.Drawing.Size(773, 270);
+            this.Controls.Add(this.H5Launcher);
             this.Controls.Add(this.FpsToolBox);
             this.Controls.Add(this.TutorialMapChangerBox);
             this.Controls.Add(this.ResToolBox);
@@ -235,6 +271,8 @@
             this.TutorialMapChangerBox.ResumeLayout(false);
             this.FpsToolBox.ResumeLayout(false);
             this.FpsToolBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FPSInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FPSTrackBar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -253,8 +291,10 @@
         private System.Windows.Forms.TrackBar FovTrackBar;
         private System.Windows.Forms.TrackBar ResTrackBar;
         private System.Windows.Forms.GroupBox FpsToolBox;
-        private System.Windows.Forms.CheckBox FpsCheck;
-        private System.Windows.Forms.Label FpsToolLabel;
+        private System.Windows.Forms.Button FPSChange;
+        private System.Windows.Forms.TrackBar FPSTrackBar;
+        private System.Windows.Forms.NumericUpDown FPSInput;
+        private System.Windows.Forms.Button H5Launcher;
     }
 }
 
