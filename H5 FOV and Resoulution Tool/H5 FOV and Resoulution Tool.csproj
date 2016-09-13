@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>H5_FOV_and_Resoulution_Tool</RootNamespace>
-    <AssemblyName>H5 FOV and Resoulution Tool</AssemblyName>
+    <AssemblyName>Corps_H5F_Tool</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
