@@ -131,9 +131,9 @@ namespace H5_FOV_and_Resoulution_Tool
             return fps;
         }
 
-        public static float fetch_fov()
+        public static decimal fetch_fov()
         {
-            float fov = BitConverter.ToSingle(MemoryManager.ReadFromAddress(0x58ECF90), 0);
+            decimal fov = BitConverter.ToInt16(MemoryManager.ReadToAddress(0x58ECF90), 0);
             return fov;
         }
 
