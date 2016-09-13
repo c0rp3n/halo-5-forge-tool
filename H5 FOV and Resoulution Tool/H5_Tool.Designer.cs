@@ -41,9 +41,9 @@
             this.TutorialMapChangerChange = new System.Windows.Forms.Button();
             this.TutorialMapChangerMaps = new System.Windows.Forms.ComboBox();
             this.FpsToolBox = new System.Windows.Forms.GroupBox();
-            this.FPSInput = new System.Windows.Forms.NumericUpDown();
-            this.FPSTrackBar = new System.Windows.Forms.TrackBar();
             this.FPSChange = new System.Windows.Forms.Button();
+            this.FPSTrackBar = new System.Windows.Forms.TrackBar();
+            this.FPSInput = new System.Windows.Forms.NumericUpDown();
             this.H5Launcher = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.FovInput)).BeginInit();
             this.FovToolBox.SuspendLayout();
@@ -53,8 +53,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.ResInput)).BeginInit();
             this.TutorialMapChangerBox.SuspendLayout();
             this.FpsToolBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.FPSInput)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FPSTrackBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FPSInput)).BeginInit();
             this.SuspendLayout();
             // 
             // FovInput
@@ -198,6 +198,24 @@
             this.FpsToolBox.TabStop = false;
             this.FpsToolBox.Text = "FPS Tool";
             // 
+            // FPSChange
+            // 
+            this.FPSChange.Location = new System.Drawing.Point(6, 45);
+            this.FPSChange.Name = "FPSChange";
+            this.FPSChange.Size = new System.Drawing.Size(120, 23);
+            this.FPSChange.TabIndex = 7;
+            this.FPSChange.Text = "Change FPS";
+            this.FPSChange.UseVisualStyleBackColor = true;
+            this.FPSChange.Click += new System.EventHandler(this.FPSChange_Click);
+            // 
+            // FPSTrackBar
+            // 
+            this.FPSTrackBar.Location = new System.Drawing.Point(132, 19);
+            this.FPSTrackBar.Name = "FPSTrackBar";
+            this.FPSTrackBar.Size = new System.Drawing.Size(226, 45);
+            this.FPSTrackBar.TabIndex = 3;
+            this.FPSTrackBar.Scroll += new System.EventHandler(this.FPSTrackBarScroll);
+            // 
             // FPSInput
             // 
             this.FPSInput.Location = new System.Drawing.Point(6, 19);
@@ -219,23 +237,6 @@
             0,
             0,
             0});
-            // 
-            // FPSTrackBar
-            // 
-            this.FPSTrackBar.Location = new System.Drawing.Point(132, 19);
-            this.FPSTrackBar.Name = "FPSTrackBar";
-            this.FPSTrackBar.Size = new System.Drawing.Size(226, 45);
-            this.FPSTrackBar.TabIndex = 3;
-            // 
-            // FPSChange
-            // 
-            this.FPSChange.Location = new System.Drawing.Point(6, 45);
-            this.FPSChange.Name = "FPSChange";
-            this.FPSChange.Size = new System.Drawing.Size(120, 23);
-            this.FPSChange.TabIndex = 7;
-            this.FPSChange.Text = "Change FPS";
-            this.FPSChange.UseVisualStyleBackColor = true;
-            this.FPSChange.Click += new System.EventHandler(this.FPSChange_Click);
             // 
             // H5Launcher
             // 
@@ -259,7 +260,7 @@
             this.Controls.Add(this.FovToolBox);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "H5_Tool";
-            this.Text = "FOV & RES Tool";
+            this.Text = "Corp\'s Halo 5: Forge Tool";
             ((System.ComponentModel.ISupportInitialize)(this.FovInput)).EndInit();
             this.FovToolBox.ResumeLayout(false);
             this.FovToolBox.PerformLayout();
@@ -271,8 +272,8 @@
             this.TutorialMapChangerBox.ResumeLayout(false);
             this.FpsToolBox.ResumeLayout(false);
             this.FpsToolBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.FPSInput)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FPSTrackBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FPSInput)).EndInit();
             this.ResumeLayout(false);
 
         }

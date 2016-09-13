@@ -27,11 +27,21 @@ namespace H5_FOV_and_Resoulution_Tool
             ResTrackBar.Maximum = 7680;
             FPSTrackBar.Minimum = 30;
             FPSTrackBar.Maximum = 300;
-            FovInput.Value = Convert.ToDecimal(fetch_fov());
+            Process[] pname = Process.GetProcessesByName("notepad");
+            if (pname.Length == 0)
+            {
+                FovInput.Value = 78;
+                FPSInput.Value = 60;
+            }
+
+            else
+            {
+                FovInput.Value = Convert.ToDecimal(fetch_fov());
+                FPSInput.Value = fetch_fps();
+            }
             FovTrackBar.Value = Convert.ToInt32(FovInput.Value);    
             ResInput.Value = 1920;
             ResTrackBar.Value = 1920;
-            FPSInput.Value = fetch_fps();
             FPSTrackBar.Value = Convert.ToInt32(FPSInput.Value);
 
             IDictionary maps = new Dictionary<string, string> {
@@ -61,6 +71,9 @@ namespace H5_FOV_and_Resoulution_Tool
             TutorialMapChangerMaps.ValueMember = "Value";
         }
 
+        const string ApplicationUserModelID = @"Microsoft.Halo5Forge_8wekyb3d8bbwe!Ausar"; 
+        const string PackageID = @"Microsoft.Halo5Forge_1.114.4592.2_x64__8wekyb3d8bbwe";
+        
         private void FovChange_Click(object sender, EventArgs e)
         {
             Int32 addr = 0x58ECF90;
@@ -78,9 +91,9 @@ namespace H5_FOV_and_Resoulution_Tool
 
             //int test = (int)ResInput.Value;
 
-            //byte[] fov = BitConverter.GetBytes(test);
+            //byte[] res = BitConverter.GetBytes(test);
 
-            //MemoryManager.WriteToAddress(addr, fov);
+            //MemoryManager.WriteToAddress(addr, res);
         }
 
         private void TutorialMapChangerChange_Click(object sender, EventArgs e)
@@ -136,6 +149,11 @@ namespace H5_FOV_and_Resoulution_Tool
             ProcessStartInfo halo5info = new ProcessStartInfo();
             halo5info.FileName = "halo5forge.exe";
             Process.Start(halo5info);
+        }
+
+        private void FPSTrackBarScroll(object sender, EventArgs e)
+        {
+            FPSInput.Value = FPSTrackBar.Value;
         }
     }
 }
