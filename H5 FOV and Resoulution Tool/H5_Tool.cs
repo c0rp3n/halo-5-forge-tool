@@ -36,7 +36,7 @@ namespace H5_FOV_and_Resoulution_Tool
 
             else
             {
-                FovInput.Value = Convert.ToDecimal(fetch_fov());
+                FovInput.Value = fetch_fov();
                 FPSInput.Value = fetch_fps();
             }
             FovTrackBar.Value = Convert.ToInt32(FovInput.Value);    
@@ -133,7 +133,7 @@ namespace H5_FOV_and_Resoulution_Tool
 
         public static float fetch_fov()
         {
-            float fov = BitConverter.ToInt16(MemoryManager.ReadToAddress(0x34B8C50), 0);
+            float fov = BitConverter.ToSingle(MemoryManager.ReadFromAddress(0x58ECF90), 0);
             return fov;
         }
 
