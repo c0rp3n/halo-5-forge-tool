@@ -1,4 +1,4 @@
-﻿namespace H5_FOV_and_Resoulution_Tool
+﻿namespace Corps_H5F_Tool
 {
     partial class H5_Tool
     {
