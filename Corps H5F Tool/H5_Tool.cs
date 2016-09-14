@@ -25,6 +25,8 @@ namespace Corps_H5F_Tool
             FovTrackBar.Maximum = 150;
             ResTrackBar.Minimum = 840;
             ResTrackBar.Maximum = 7680;
+            RESHeightTrackBar.Minimum = 480;
+            RESHeightTrackBar.Maximum = 4320;
             FPSTrackBar.Minimum = 30;
             FPSTrackBar.Maximum = 300;
             Process[] pname = Process.GetProcessesByName("halo5forge");
@@ -70,9 +72,6 @@ namespace Corps_H5F_Tool
             TutorialMapChangerMaps.DisplayMember = "Key";
             TutorialMapChangerMaps.ValueMember = "Value";
         }
-
-        const string ApplicationUserModelID = @"Microsoft.Halo5Forge_8wekyb3d8bbwe!Ausar"; 
-        const string PackageID = @"Microsoft.Halo5Forge_1.114.4592.2_x64__8wekyb3d8bbwe";
         
         private void FovChange_Click(object sender, EventArgs e)
         {
@@ -87,13 +86,42 @@ namespace Corps_H5F_Tool
 
         private void ResChange_Click(object sender, EventArgs e)
         {
-            //Int32 addr = 0x58ECF90;
+            Change_Res();
+            Change_Res_Height();
+            Chang_Aspect();
+        }
 
-            //int test = (int)ResInput.Value;
+        private void Change_Res()
+        {
+            Int32 addr = 0x4E97F60;
 
-            //byte[] res = BitConverter.GetBytes(test);
+            int test = (int)ResInput.Value;
 
-            //MemoryManager.WriteToAddress(addr, res);
+            byte[] res = BitConverter.GetBytes(test);
+
+            MemoryManager.WriteToAddress(addr, res);
+        }
+
+        private void Change_Res_Height()
+        {
+            Int32 addr = 0x4E97F64;
+
+            int test = (int)ResHeightInput.Value;
+
+            byte[] res = BitConverter.GetBytes(test);
+
+            MemoryManager.WriteToAddress(addr, res);
+        }
+
+        private void Chang_Aspect()
+        {
+            Int32 addr = 0x332FC18;
+
+            float test = (int)ResInput.Value / 1080;
+
+            byte[] aspect = BitConverter.GetBytes(test);
+
+            MemoryManager.WriteToAddress(addr, aspect);
         }
 
         private void TutorialMapChangerChange_Click(object sender, EventArgs e)
@@ -115,6 +143,12 @@ namespace Corps_H5F_Tool
         private void ResTrackBarScroll(object sender, EventArgs e)
         {
             ResInput.Value = ResTrackBar.Value;
+        }
+
+
+        private void ResHeightTrackBarScroll(object sender, EventArgs e)
+        {
+            ResHeightInput.Value = RESHeightTrackBar.Value;
         }
 
         private void change_fps(int fps, Int32 addr)
@@ -146,14 +180,14 @@ namespace Corps_H5F_Tool
 
         private void H5Launcher_Click(object sender, EventArgs e)
         {
-            ProcessStartInfo halo5info = new ProcessStartInfo();
-            halo5info.FileName = "halo5forge.exe";
-            Process.Start(halo5info);
+            UWP.LaunchApp("Microsoft.Halo5Forge_1.114.4592.2_x64__8wekyb3d8bbwe");
         }
 
         private void FPSTrackBarScroll(object sender, EventArgs e)
         {
             FPSInput.Value = FPSTrackBar.Value;
+            Change_Res();
+            Chang_Aspect();
         }
     }
 }

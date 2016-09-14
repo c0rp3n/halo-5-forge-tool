@@ -33,10 +33,6 @@
             this.FovChange = new System.Windows.Forms.Button();
             this.FovToolBox = new System.Windows.Forms.GroupBox();
             this.FovTrackBar = new System.Windows.Forms.TrackBar();
-            this.ResToolBox = new System.Windows.Forms.GroupBox();
-            this.ResTrackBar = new System.Windows.Forms.TrackBar();
-            this.ResChange = new System.Windows.Forms.Button();
-            this.ResInput = new System.Windows.Forms.NumericUpDown();
             this.TutorialMapChangerBox = new System.Windows.Forms.GroupBox();
             this.TutorialMapChangerChange = new System.Windows.Forms.Button();
             this.TutorialMapChangerMaps = new System.Windows.Forms.ComboBox();
@@ -45,16 +41,26 @@
             this.FPSTrackBar = new System.Windows.Forms.TrackBar();
             this.FPSInput = new System.Windows.Forms.NumericUpDown();
             this.H5Launcher = new System.Windows.Forms.Button();
+            this.ResInput = new System.Windows.Forms.NumericUpDown();
+            this.ResChange = new System.Windows.Forms.Button();
+            this.ResTrackBar = new System.Windows.Forms.TrackBar();
+            this.ResHeightInput = new System.Windows.Forms.NumericUpDown();
+            this.WidthLabel = new System.Windows.Forms.Label();
+            this.HeightLabel = new System.Windows.Forms.Label();
+            this.ResToolBox = new System.Windows.Forms.GroupBox();
+            this.RESHeightTrackBar = new System.Windows.Forms.TrackBar();
             ((System.ComponentModel.ISupportInitialize)(this.FovInput)).BeginInit();
             this.FovToolBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FovTrackBar)).BeginInit();
-            this.ResToolBox.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ResTrackBar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ResInput)).BeginInit();
             this.TutorialMapChangerBox.SuspendLayout();
             this.FpsToolBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FPSTrackBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FPSInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ResInput)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ResTrackBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ResHeightInput)).BeginInit();
+            this.ResToolBox.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.RESHeightTrackBar)).BeginInit();
             this.SuspendLayout();
             // 
             // FovInput
@@ -100,68 +106,11 @@
             this.FovTrackBar.TabIndex = 2;
             this.FovTrackBar.Scroll += new System.EventHandler(this.FovTrackBarScroll);
             // 
-            // ResToolBox
-            // 
-            this.ResToolBox.Controls.Add(this.ResTrackBar);
-            this.ResToolBox.Controls.Add(this.ResChange);
-            this.ResToolBox.Controls.Add(this.ResInput);
-            this.ResToolBox.Location = new System.Drawing.Point(12, 93);
-            this.ResToolBox.Name = "ResToolBox";
-            this.ResToolBox.Size = new System.Drawing.Size(367, 80);
-            this.ResToolBox.TabIndex = 3;
-            this.ResToolBox.TabStop = false;
-            this.ResToolBox.Text = "Res Tool";
-            // 
-            // ResTrackBar
-            // 
-            this.ResTrackBar.Location = new System.Drawing.Point(135, 20);
-            this.ResTrackBar.Name = "ResTrackBar";
-            this.ResTrackBar.Size = new System.Drawing.Size(226, 45);
-            this.ResTrackBar.TabIndex = 2;
-            this.ResTrackBar.MouseCaptureChanged += new System.EventHandler(this.ResTrackBarScroll);
-            // 
-            // ResChange
-            // 
-            this.ResChange.Location = new System.Drawing.Point(7, 47);
-            this.ResChange.Name = "ResChange";
-            this.ResChange.Size = new System.Drawing.Size(120, 23);
-            this.ResChange.TabIndex = 1;
-            this.ResChange.Text = "Change Res";
-            this.ResChange.UseVisualStyleBackColor = true;
-            this.ResChange.Click += new System.EventHandler(this.ResChange_Click);
-            // 
-            // ResInput
-            // 
-            this.ResInput.Increment = new decimal(new int[] {
-            840,
-            0,
-            0,
-            0});
-            this.ResInput.Location = new System.Drawing.Point(7, 20);
-            this.ResInput.Maximum = new decimal(new int[] {
-            7680,
-            0,
-            0,
-            0});
-            this.ResInput.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.ResInput.Name = "ResInput";
-            this.ResInput.Size = new System.Drawing.Size(120, 20);
-            this.ResInput.TabIndex = 0;
-            this.ResInput.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
             // TutorialMapChangerBox
             // 
             this.TutorialMapChangerBox.Controls.Add(this.TutorialMapChangerChange);
             this.TutorialMapChangerBox.Controls.Add(this.TutorialMapChangerMaps);
-            this.TutorialMapChangerBox.Location = new System.Drawing.Point(12, 179);
+            this.TutorialMapChangerBox.Location = new System.Drawing.Point(12, 199);
             this.TutorialMapChangerBox.Name = "TutorialMapChangerBox";
             this.TutorialMapChangerBox.Size = new System.Drawing.Size(367, 81);
             this.TutorialMapChangerBox.TabIndex = 4;
@@ -240,7 +189,7 @@
             // 
             // H5Launcher
             // 
-            this.H5Launcher.Location = new System.Drawing.Point(386, 237);
+            this.H5Launcher.Location = new System.Drawing.Point(385, 256);
             this.H5Launcher.Name = "H5Launcher";
             this.H5Launcher.Size = new System.Drawing.Size(374, 23);
             this.H5Launcher.TabIndex = 6;
@@ -248,11 +197,125 @@
             this.H5Launcher.UseVisualStyleBackColor = true;
             this.H5Launcher.Click += new System.EventHandler(this.H5Launcher_Click);
             // 
+            // ResInput
+            // 
+            this.ResInput.Increment = new decimal(new int[] {
+            840,
+            0,
+            0,
+            0});
+            this.ResInput.Location = new System.Drawing.Point(42, 20);
+            this.ResInput.Maximum = new decimal(new int[] {
+            7680,
+            0,
+            0,
+            0});
+            this.ResInput.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.ResInput.Name = "ResInput";
+            this.ResInput.Size = new System.Drawing.Size(86, 20);
+            this.ResInput.TabIndex = 0;
+            this.ResInput.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // ResChange
+            // 
+            this.ResChange.Location = new System.Drawing.Point(7, 77);
+            this.ResChange.Name = "ResChange";
+            this.ResChange.Size = new System.Drawing.Size(120, 23);
+            this.ResChange.TabIndex = 1;
+            this.ResChange.Text = "Change Res";
+            this.ResChange.UseVisualStyleBackColor = true;
+            this.ResChange.Click += new System.EventHandler(this.ResChange_Click);
+            // 
+            // ResTrackBar
+            // 
+            this.ResTrackBar.Location = new System.Drawing.Point(135, 20);
+            this.ResTrackBar.Name = "ResTrackBar";
+            this.ResTrackBar.Size = new System.Drawing.Size(226, 45);
+            this.ResTrackBar.TabIndex = 2;
+            this.ResTrackBar.MouseCaptureChanged += new System.EventHandler(this.ResTrackBarScroll);
+            // 
+            // ResHeightInput
+            // 
+            this.ResHeightInput.Increment = new decimal(new int[] {
+            840,
+            0,
+            0,
+            0});
+            this.ResHeightInput.Location = new System.Drawing.Point(42, 51);
+            this.ResHeightInput.Maximum = new decimal(new int[] {
+            7680,
+            0,
+            0,
+            0});
+            this.ResHeightInput.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.ResHeightInput.Name = "ResHeightInput";
+            this.ResHeightInput.Size = new System.Drawing.Size(85, 20);
+            this.ResHeightInput.TabIndex = 3;
+            this.ResHeightInput.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // WidthLabel
+            // 
+            this.WidthLabel.AutoSize = true;
+            this.WidthLabel.Location = new System.Drawing.Point(1, 22);
+            this.WidthLabel.Name = "WidthLabel";
+            this.WidthLabel.Size = new System.Drawing.Size(38, 13);
+            this.WidthLabel.TabIndex = 4;
+            this.WidthLabel.Text = "Width:";
+            // 
+            // HeightLabel
+            // 
+            this.HeightLabel.AutoSize = true;
+            this.HeightLabel.Location = new System.Drawing.Point(1, 53);
+            this.HeightLabel.Name = "HeightLabel";
+            this.HeightLabel.Size = new System.Drawing.Size(41, 13);
+            this.HeightLabel.TabIndex = 5;
+            this.HeightLabel.Text = "Height:";
+            // 
+            // ResToolBox
+            // 
+            this.ResToolBox.Controls.Add(this.RESHeightTrackBar);
+            this.ResToolBox.Controls.Add(this.HeightLabel);
+            this.ResToolBox.Controls.Add(this.WidthLabel);
+            this.ResToolBox.Controls.Add(this.ResHeightInput);
+            this.ResToolBox.Controls.Add(this.ResTrackBar);
+            this.ResToolBox.Controls.Add(this.ResChange);
+            this.ResToolBox.Controls.Add(this.ResInput);
+            this.ResToolBox.Location = new System.Drawing.Point(12, 93);
+            this.ResToolBox.Name = "ResToolBox";
+            this.ResToolBox.Size = new System.Drawing.Size(367, 106);
+            this.ResToolBox.TabIndex = 3;
+            this.ResToolBox.TabStop = false;
+            this.ResToolBox.Text = "Res Tool";
+            // 
+            // RESHeightTrackBar
+            // 
+            this.RESHeightTrackBar.Location = new System.Drawing.Point(135, 51);
+            this.RESHeightTrackBar.Name = "RESHeightTrackBar";
+            this.RESHeightTrackBar.Size = new System.Drawing.Size(226, 45);
+            this.RESHeightTrackBar.TabIndex = 6;
+            this.RESHeightTrackBar.MouseCaptureChanged += new System.EventHandler(this.ResHeightTrackBarScroll);
+            // 
             // H5_Tool
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(773, 270);
+            this.ClientSize = new System.Drawing.Size(773, 291);
             this.Controls.Add(this.H5Launcher);
             this.Controls.Add(this.FpsToolBox);
             this.Controls.Add(this.TutorialMapChangerBox);
@@ -265,15 +328,17 @@
             this.FovToolBox.ResumeLayout(false);
             this.FovToolBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FovTrackBar)).EndInit();
-            this.ResToolBox.ResumeLayout(false);
-            this.ResToolBox.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ResTrackBar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.ResInput)).EndInit();
             this.TutorialMapChangerBox.ResumeLayout(false);
             this.FpsToolBox.ResumeLayout(false);
             this.FpsToolBox.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FPSTrackBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FPSInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ResInput)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ResTrackBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ResHeightInput)).EndInit();
+            this.ResToolBox.ResumeLayout(false);
+            this.ResToolBox.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.RESHeightTrackBar)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -283,19 +348,23 @@
         private System.Windows.Forms.NumericUpDown FovInput;
         private System.Windows.Forms.Button FovChange;
         private System.Windows.Forms.GroupBox FovToolBox;
-        private System.Windows.Forms.GroupBox ResToolBox;
-        private System.Windows.Forms.Button ResChange;
-        private System.Windows.Forms.NumericUpDown ResInput;
         private System.Windows.Forms.GroupBox TutorialMapChangerBox;
         private System.Windows.Forms.Button TutorialMapChangerChange;
         private System.Windows.Forms.ComboBox TutorialMapChangerMaps;
         private System.Windows.Forms.TrackBar FovTrackBar;
-        private System.Windows.Forms.TrackBar ResTrackBar;
         private System.Windows.Forms.GroupBox FpsToolBox;
         private System.Windows.Forms.Button FPSChange;
         private System.Windows.Forms.TrackBar FPSTrackBar;
         private System.Windows.Forms.NumericUpDown FPSInput;
         private System.Windows.Forms.Button H5Launcher;
+        private System.Windows.Forms.NumericUpDown ResInput;
+        private System.Windows.Forms.Button ResChange;
+        private System.Windows.Forms.TrackBar ResTrackBar;
+        private System.Windows.Forms.NumericUpDown ResHeightInput;
+        private System.Windows.Forms.Label WidthLabel;
+        private System.Windows.Forms.Label HeightLabel;
+        private System.Windows.Forms.GroupBox ResToolBox;
+        private System.Windows.Forms.TrackBar RESHeightTrackBar;
     }
 }
 
