@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "H5 FOV and Resoulution Tool", "H5 FOV and Resoulution Tool\H5 FOV and Resoulution Tool.csproj", "{EF2B0AD4-EAAA-4B5F-9D77-62EB12F0489E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Corps H5F Tool", "Corps H5F Tool\Corps H5F Tool.csproj", "{EF2B0AD4-EAAA-4B5F-9D77-62EB12F0489E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

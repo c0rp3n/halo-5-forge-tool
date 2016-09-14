@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace H5_FOV_and_Resoulution_Tool.Properties
+namespace Corps_H5F_Tool.Properties
 {
 
 
@@ -44,7 +44,7 @@ namespace H5_FOV_and_Resoulution_Tool.Properties
             {
                 if ((resourceMan == null))
                 {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("H5_FOV_and_Resoulution_Tool.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Corps_H5F_Tool.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

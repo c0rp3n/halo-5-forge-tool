@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace H5_FOV_and_Resoulution_Tool.Properties
+namespace Corps_H5F_Tool.Properties
 {
 
 

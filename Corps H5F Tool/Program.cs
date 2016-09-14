@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace H5_FOV_and_Resoulution_Tool
+namespace Corps_H5F_Tool
 {
     static class Program
     {

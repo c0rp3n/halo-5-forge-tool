@@ -13,7 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace H5_FOV_and_Resoulution_Tool
+namespace Corps_H5F_Tool
 {
     public partial class H5_Tool : Form
     {
@@ -126,14 +126,14 @@ namespace H5_FOV_and_Resoulution_Tool
 
         public static int fetch_fps()
         {
-            int fps_div = BitConverter.ToInt16(MemoryManager.ReadToAddress(0x34B8C50), 0);
+            int fps_div = BitConverter.ToInt16(MemoryManager.ReadFromAddress(0x34B8C50), 0);
             int fps = 1000000 / fps_div;
             return fps;
         }
 
         public static float fetch_fov()
         {
-            float fov = BitConverter.ToSingle(MemoryManager.ReadToAddress(0x58ECF90), 0);
+            float fov = BitConverter.ToSingle(MemoryManager.ReadFromAddress(0x58ECF90), 0);
             return fov;
         }
 
