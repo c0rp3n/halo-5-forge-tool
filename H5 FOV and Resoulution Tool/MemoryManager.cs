@@ -4,7 +4,7 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Diagnostics;
 
-namespace H5_FOV_and_Resoulution_Tool
+namespace Corps_H5F_Tool
 {
     class MemoryManager
     {
@@ -47,7 +47,7 @@ namespace H5_FOV_and_Resoulution_Tool
             CloseHandle(hProc);
         }
 
-        public static byte[] ReadToAddress(Int32 address)
+        public static byte[] ReadFromAddress(Int32 address)
         {
             Process p = Process.GetProcessesByName("halo5forge").FirstOrDefault();
             Int64 startOffset = p.MainModule.BaseAddress.ToInt64();
