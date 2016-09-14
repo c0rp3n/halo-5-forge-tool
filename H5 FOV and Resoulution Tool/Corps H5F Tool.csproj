@@ -7,7 +7,7 @@
     <ProjectGuid>{EF2B0AD4-EAAA-4B5F-9D77-62EB12F0489E}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>H5_FOV_and_Resoulution_Tool</RootNamespace>
+    <RootNamespace>Corps_H5F_Tool</RootNamespace>
     <AssemblyName>Corps_H5F_Tool</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
