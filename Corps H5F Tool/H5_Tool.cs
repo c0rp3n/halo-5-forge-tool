@@ -55,24 +55,30 @@ namespace Corps_H5F_Tool
 
             IDictionary maps = new Dictionary<string, string> {
                 {"Alpine", @"levels\multi\fo01_terrain_alpine\fo01_terrain_alpine"},
-                {"Breakout Arena", @"levels\multi\fo03_space\fo03_space"},
-                {"Coliseum", @"levels\multi\fo01_terrain_alpine\fo01_terrain_alpine"},
-                {"Eden", @"levels\multi\fo01_terrain_alpine\fo01_terrain_alpine"},
-                {"Empire", @"levels\multi\fo01_terrain_alpine\fo01_terrain_alpine"},
-                {"Fathom", @"levels\multi\fo01_terrain_alpine\fo01_terrain_alpine"},
+                {"Breakout Arena", @"levels\multi\fo_arena_breakout\fo_arena_breakout"},
+                {"Coliseum", @"levels\multi\ng50_ss_coliseum\ng50_ss_coliseum"},
+                //{"Eden", @"levels\multi\fo01_terrain_alpine\fo01_terrain_alpine"},
+                //{"Empire", @"levels\multi\fo01_terrain_alpine\fo01_terrain_alpine"},
+                //{"Fathom", @"levels\multi\ng23_ss_skew\ng23_ss_skew"},
                 {"Glacier", @"levels\multi\fo02_glacier\fo02_glacier"},
-                {"Mercy", @"levels\multi\fo01_terrain_alpine\fo01_terrain_alpine"},
-                {"Molten", @"levels\multi\fo01_terrain_alpine\fo01_terrain_alpine"},
-                {"Overgrowth", @"levels\multi\fo01_terrain_alpine\fo01_terrain_alpine"},
-                {"Plaza", @"levels\multi\fo01_terrain_alpine\fo01_terrain_alpine"},
-                {"Regret", @"levels\multi\fo01_terrain_alpine\fo01_terrain_alpine"},
-                {"Riptide", @"levels\multi\fo01_terrain_alpine\fo01_terrain_alpine"},
-                {"Stasis", @"levels\multi\fo01_terrain_alpine\fo01_terrain_alpine"},
-                {"The Rig", @"levels\multi\fo01_terrain_alpine\fo01_terrain_alpine"},
+                //{"Mercy", @"levels\multi\fo01_terrain_alpine\fo01_terrain_alpine"},
+                //{"Molten", @"levels\multi\fo01_terrain_alpine\fo01_terrain_alpine"},
+                //{"Overgrowth", @"levels\multi\fo01_terrain_alpine\fo01_terrain_alpine"},
+                //{"Plaza", @"levels\multi\fo01_terrain_alpine\fo01_terrain_alpine"},
+                {"Regret", @"levels\multi\ng43r_midship_remix\ng43r_midship_remix"},
+                //{"Riptide", @"levels\multi\fo01_terrain_alpine\fo01_terrain_alpine"},
+                {"Stasis", @"levels\multi\ng25_ss_pistons_remix\ng25_ss_pistons_remix"},
+                //{"The Rig", @"levels\multi\fo01_terrain_alpine\fo01_terrain_alpine"},
                 {"Tidal", @"levels\multi\fo04_ocean\fo04_ocean"},
-                {"Torque", @"levels\multi\fo01_terrain_alpine\fo01_terrain_alpine"},
+                {"Torque", @"levels\multi\ng25_ss_pistons\ng25_ss_pistons"},
                 {"Truth", @"levels\multi\ng43_midship\ng43_midship"},
-                {"Tyrant", @"levels\multi\fo01_terrain_alpine\fo01_terrain_alpine"}
+                //{"Tyrant", @"levels\multi\fo01_terrain_alpine\fo01_terrain_alpine"},
+                {"Parallax", @"levels\multi\fo03_space\fo03_space"},
+                // ng11_la_courtyard
+                // ng20_sa_towers\ng20_sa_towers crash
+                // ng23_ss_skew = fathom
+                //ng50r_ss_coliseum_remix
+                //levels\multi\ng50r_ss_coliseum_remix\ng50r_ss_coliseum_remix
             };
 
             TutorialMapChangerMaps.DataSource = new BindingSource(maps, null);
@@ -140,8 +146,12 @@ namespace Corps_H5F_Tool
             string mapval = TutorialMapChangerMaps.SelectedValue.ToString();
 
             byte[] map = Encoding.ASCII.GetBytes(mapval);
+            byte[] terminatedMap = new byte[map.Length + 1];
 
-            MemoryManager.WriteToAddress(addr, map);
+            map.CopyTo(terminatedMap, 0);
+            terminatedMap[terminatedMap.Length - 1] = 0x00;
+
+            MemoryManager.WriteToAddress(addr, terminatedMap);
         }
 
         private void FovTrackBarScroll(object sender, EventArgs e)
