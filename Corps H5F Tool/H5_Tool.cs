@@ -27,7 +27,7 @@ namespace Corps_H5F_Tool
             ResTrackBar.Maximum = 7680;
             FPSTrackBar.Minimum = 30;
             FPSTrackBar.Maximum = 300;
-            Process[] pname = Process.GetProcessesByName("notepad");
+            Process[] pname = Process.GetProcessesByName("halo5forge");
             if (pname.Length == 0)
             {
                 FovInput.Value = 78;
