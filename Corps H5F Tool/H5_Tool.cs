@@ -17,8 +17,11 @@ namespace Corps_H5F_Tool
 {
     public partial class H5_Tool : Form
     {
+        public float defaultFoV = 0f;
+
         public H5_Tool()
-        {
+        {            
+
             InitializeComponent();
 
             FovTrackBar.Minimum = 65;
@@ -29,18 +32,22 @@ namespace Corps_H5F_Tool
             RESHeightTrackBar.Maximum = 4320;
             FPSTrackBar.Minimum = 30;
             FPSTrackBar.Maximum = 300;
-            Process[] pname = Process.GetProcessesByName("halo5forge");
-            if (pname.Length == 0)
+
+            if (isGameRunning())
+            {                
+                FovInput.Value = Convert.ToDecimal(fetch_fov());
+                FPSInput.Value = fetch_fps();
+                H5Launcher.Visible = false;
+            }
+            else
             {
                 FovInput.Value = 78;
                 FPSInput.Value = 60;
+                H5Launcher.Visible = true;
             }
 
-            else
-            {
-                FovInput.Value = Convert.ToDecimal(fetch_fov());
-                FPSInput.Value = fetch_fps();
-            }
+            defaultFoV = (float)FovInput.Value;
+
             FovTrackBar.Value = Convert.ToInt32(FovInput.Value);    
             ResInput.Value = 1920;
             ResTrackBar.Value = 1920;
@@ -75,14 +82,16 @@ namespace Corps_H5F_Tool
         
         private void FovChange_Click(object sender, EventArgs e)
         {
-            Int32 addr = 0x58ECF90;
-
             float fovval = (float)FovInput.Value;
+            setFoV(fovval);
+        }
 
-            byte[] fov = BitConverter.GetBytes(fovval);
-
+        private void setFoV(float val) {
+            Int32 addr = 0x58ECF90;
+            byte[] fov = BitConverter.GetBytes(val);
             MemoryManager.WriteToAddress(addr, fov);
         }
+
 
         private void ResChange_Click(object sender, EventArgs e)
         {
@@ -188,6 +197,30 @@ namespace Corps_H5F_Tool
             FPSInput.Value = FPSTrackBar.Value;
             Change_Res();
             Chang_Aspect();
+        }
+
+        private void ResetFOV_Click(object sender, EventArgs e)
+        {
+            setFoV(defaultFoV);
+            FovInput.Value = (int)defaultFoV;
+            FovTrackBar.Value = (int)defaultFoV;
+        }
+
+        private void tmrGameCheck_Tick(object sender, EventArgs e)
+        {
+            if (isGameRunning())
+            {
+                H5Launcher.Visible = false;
+            } else
+            {
+                H5Launcher.Visible = true;
+            }
+        }
+        
+        private bool isGameRunning()
+        {
+            Process[] pname = Process.GetProcessesByName("halo5forge");
+            return (pname.Length != 0);
         }
     }
 }

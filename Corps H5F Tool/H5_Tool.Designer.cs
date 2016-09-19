@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(H5_Tool));
             this.FovInput = new System.Windows.Forms.NumericUpDown();
             this.FovChange = new System.Windows.Forms.Button();
@@ -49,6 +50,8 @@
             this.HeightLabel = new System.Windows.Forms.Label();
             this.ResToolBox = new System.Windows.Forms.GroupBox();
             this.RESHeightTrackBar = new System.Windows.Forms.TrackBar();
+            this.ResetFOV = new System.Windows.Forms.Button();
+            this.tmrGameCheck = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.FovInput)).BeginInit();
             this.FovToolBox.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FovTrackBar)).BeginInit();
@@ -88,6 +91,7 @@
             // 
             // FovToolBox
             // 
+            this.FovToolBox.Controls.Add(this.ResetFOV);
             this.FovToolBox.Controls.Add(this.FovTrackBar);
             this.FovToolBox.Controls.Add(this.FovInput);
             this.FovToolBox.Controls.Add(this.FovChange);
@@ -311,6 +315,22 @@
             this.RESHeightTrackBar.TabIndex = 6;
             this.RESHeightTrackBar.MouseCaptureChanged += new System.EventHandler(this.ResHeightTrackBarScroll);
             // 
+            // ResetFOV
+            // 
+            this.ResetFOV.Location = new System.Drawing.Point(132, 45);
+            this.ResetFOV.Name = "ResetFOV";
+            this.ResetFOV.Size = new System.Drawing.Size(120, 23);
+            this.ResetFOV.TabIndex = 7;
+            this.ResetFOV.Text = "Reset FOV";
+            this.ResetFOV.UseVisualStyleBackColor = true;
+            this.ResetFOV.Click += new System.EventHandler(this.ResetFOV_Click);
+            // 
+            // tmrGameCheck
+            // 
+            this.tmrGameCheck.Enabled = true;
+            this.tmrGameCheck.Interval = 5000;
+            this.tmrGameCheck.Tick += new System.EventHandler(this.tmrGameCheck_Tick);
+            // 
             // H5_Tool
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -365,6 +385,8 @@
         private System.Windows.Forms.Label HeightLabel;
         private System.Windows.Forms.GroupBox ResToolBox;
         private System.Windows.Forms.TrackBar RESHeightTrackBar;
+        private System.Windows.Forms.Button ResetFOV;
+        private System.Windows.Forms.Timer tmrGameCheck;
     }
 }
 
