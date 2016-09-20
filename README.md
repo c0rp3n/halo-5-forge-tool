@@ -16,6 +16,7 @@ Credits:
 - Wunkolo
 - dany
 - Personality
+- Limited
 
 
 If I missed anyone please say.
