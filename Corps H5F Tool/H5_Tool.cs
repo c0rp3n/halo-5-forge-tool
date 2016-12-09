@@ -93,7 +93,7 @@ namespace Corps_H5F_Tool
         }
 
         private void setFoV(float val) {
-            Int32 addr = 0x58ECF90;
+            Int32 addr = 0x5934A90;
             byte[] fov = BitConverter.GetBytes(val);
             MemoryManager.WriteToAddress(addr, fov);
         }
