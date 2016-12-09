@@ -141,7 +141,7 @@ namespace Corps_H5F_Tool
 
         private void TutorialMapChangerChange_Click(object sender, EventArgs e)
         {
-            Int32 addr = 0x3A25DA0;
+            Int32 addr = 0x3A01840;
 
             string mapval = TutorialMapChangerMaps.SelectedValue.ToString();
 
@@ -186,7 +186,7 @@ namespace Corps_H5F_Tool
 
         public static float fetch_fov()
         {
-            float fov = BitConverter.ToSingle(MemoryManager.ReadFromAddress(0x58ECF90), 0);
+            float fov = BitConverter.ToSingle(MemoryManager.ReadFromAddress(0x5934A90), 0);
             return fov;
         }
 
