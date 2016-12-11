@@ -179,7 +179,7 @@ namespace Corps_H5F_Tool
 
         public static int fetch_fps()
         {
-            int fps_div = BitConverter.ToInt16(MemoryManager.ReadFromAddress(0x34B8C50), 0);
+            int fps_div = BitConverter.ToInt16(MemoryManager.ReadFromAddress(0x349E970), 0);
             int fps = 1000000 / fps_div;
             return fps;
         }
@@ -192,9 +192,9 @@ namespace Corps_H5F_Tool
 
         private void FPSChange_Click(object sender, EventArgs e)
         {
-            change_fps(1000000 / Convert.ToInt16(FPSInput.Value), 0x34B8C50);
-            change_fps(1000000 / Convert.ToInt16(FPSInput.Value), 0x34B8C60);
-            change_fps(1000000 / Convert.ToInt16(FPSInput.Value), 0x34B8C70);
+            change_fps(1000000 / Convert.ToInt16(FPSInput.Value), 0x349E970);
+            change_fps(1000000 / Convert.ToInt16(FPSInput.Value), 0x349E980);
+            change_fps(1000000 / Convert.ToInt16(FPSInput.Value), 0x34B8C90);
         }
 
         private void H5Launcher_Click(object sender, EventArgs e)
